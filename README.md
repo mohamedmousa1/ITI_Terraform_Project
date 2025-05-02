@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Terraform Project
 
 ## 📘 Overview
@@ -100,3 +101,6 @@ terraform apply
 | 📈 Scalability   | Easily extend infrastructure without rewriting everything                    |
 
 
+=======
+# LAMP_Project
+>>>>>>> ff6a5c7070c8d7e4573698d592c3882dbf479809
