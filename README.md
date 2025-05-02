@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🚀 Terraform Project
 
 ## 📘 Overview
