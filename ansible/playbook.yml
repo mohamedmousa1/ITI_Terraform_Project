@@ -1,0 +1,9 @@
+- name: Setup MariaDB for WordPress
+  hosts: all
+  connection: local
+  become: yes
+  roles:
+    - mariadb-role
+    - php-role
+    - apache-role
+    - wordpress-role
