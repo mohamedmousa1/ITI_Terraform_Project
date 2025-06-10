@@ -10,7 +10,7 @@ Includes:
 - 🌐 Public Subnets
 - 🔐 Private Subnets
 - 💻 EC2 Instances
-- ⚙️ TDS (Custom Module - e.g., database or internal app)
+- ⚙️  RDS (Custom Module - e.g., database or internal app)
 
 ---
 
@@ -28,7 +28,7 @@ terraform_project/
     ├── vpc/            # 🧱 VPC Module
     ├── private_subnet/ # 🔐 Private Subnet
     ├── public_subnet/  # 🌐 Public Subnet
-    └── tds/            # ⚙️ TDS Module (Custom/Service)
+    └── rds/            # ⚙️ RDS Module (Custom/Service)
 ```
 ## 🔧 Modules Breakdown
 
@@ -49,7 +49,7 @@ terraform_project/
 - Launches EC2 instances  
 - Set AMI, instance type, key pair, and security groups
 
-### ⚙️ TDS Module (`moduals/tds`)
+### ⚙️ RDS Module (`moduals/rds`)
 - Custom service logic (e.g., internal tool or database)  
 - Automates setup and provisioning
 
