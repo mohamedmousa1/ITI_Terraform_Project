@@ -1,0 +1,45 @@
+---
+# tasks file for wordpress
+- name: download wordpress
+  ansible.builtin.get_url:
+    url: https://wordpress.org/latest.tar.gz
+    dest: /var/www
+
+- name: extract wordpress compressed file
+  ansible.builtin.unarchive:
+    src: /var/www/wordpress-6.7.2.tar.gz
+    dest: /var/www
+
+- name: set DB_NAME
+  ansible.builtin.lineinfile:
+    path: /var/www/wordpress/wp-config-sample.php
+    regexp: "^define\\( 'DB_NAME', '.*' \\);"
+    line: "define( 'DB_NAME', 'wordpress' );"
+
+- name: set DB_USER
+  ansible.builtin.lineinfile:
+    path: /var/www/wordpress/wp-config-sample.php
+    regexp: "^define\\( 'DB_USER', '.*' \\);"
+    line: "define( 'DB_USER', 'root' );"
+
+- name: set DB_PASSWORD
+  ansible.builtin.lineinfile:
+    path: /var/www/wordpress/wp-config-sample.php
+    regexp: "^define\\( 'DB_PASSWORD', '.*' \\);"
+    line: "define( 'DB_PASSWORD', 'rootpassword' );"
+
+- name: set DB_HOST
+  ansible.builtin.lineinfile:
+    path: /var/www/wordpress/wp-config-sample.php
+    regexp: "^define\\( 'DB_HOST', '.*' \\);"
+    line: "define( 'DB_HOST', '127.0.0.1' );"
+
+- name: copy sample config to wp-config.php
+  ansible.builtin.copy:
+    src: /var/www/wordpress/wp-config-sample.php
+    dest: /var/www/wordpress/wp-config.php
+
+- name: Copy all files from /var/www/wordpress to /var/www/html
+  ansible.builtin.synchronize:
+    src: /var/www/wordpress/
+    dest: /var/www/html/
